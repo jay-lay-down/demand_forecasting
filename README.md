@@ -1,5 +1,5 @@
 # Forecasting
-외부 요인을 고려한 demand &amp; brand share forecasting
+외생 변수를 고려한 최적화된 예측 모델링 + R 패키지 개발 (ver 4.5 이상)
 
 # SARIMAX 외생 변수 최적화 방법론 비교
 이 프로젝트는 SARIMAX 모델의 외생 변수(exogenous variables)를 선정하는 두 가지 방법론, **Elastic-Net**과 **주성분 분석(PCA)**을 비교하고 성능을 평가하는 R 파이프라인
