@@ -1,0 +1,31 @@
+Package: regforecast
+Title: SARIMAX + Elastic-Net + Granger + Backtest + GIF
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jihee", "Cho", email = "you@example.com", role = c("aut", "cre"))
+Description: Leak-free SARIMAX pipeline with Elastic-Net selection, Granger test, rolling-origin CV, t-innovations fallback, MASE/Theil_U metrics, backtesting, and GIF animation.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en
+Depends: R (>= 4.1.0)
+Imports:
+    forecast,
+    data.table,
+    glmnet,
+    readxl,
+    openxlsx,
+    zoo,
+    ggplot2,
+    lmtest,
+    rugarch,
+    gridExtra,
+    tidyr,
+    stats,
+    utils
+Suggests:
+    gifski,
+    magick,
+    testthat (>= 3.0.0)
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Config/testthat/edition: 3
