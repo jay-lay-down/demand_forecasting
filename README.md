@@ -4,8 +4,8 @@
 # SARIMAX 외생 변수 최적화 방법론 비교
 이 프로젝트는 SARIMAX 모델의 외생 변수(exogenous variables)를 선정하는 두 가지 방법론, **Elastic-Net**과 **주성분 분석(PCA)**을 비교하고 성능을 평가하는 R 파이프라인
 
-- ** Elasitc-Net: Elastic-Net 회귀를 통해 변수 채택 후 Granger 인과성 테스트를 통해 인과성이 보장된 변수만 모델링에 투입
-- - **`utils.R`**: 두 파이프라인이 공통으로 사용하는 헬퍼 함수 모음
+- ** Elasitc-Net: Elastic-Net 회귀를 통해 변수 채택 후 Granger 인과성 테스트를 통해 인과성이 보장된 변수+최적의 시차만 모델링에 투입
+- ** PCA:  **주성분 분석(PCA)**을 통해 85개의 복잡한 변수들을 소수의 핵심적인 주성분(PC)으로 압축한 후, Granger 인과성 테스트를 통해 인과성이 보장된 변수+최적의 시차만 모델링에 투입
 
 
 
@@ -58,13 +58,18 @@ res <- run_pipeline(
 )
 ```
 
-
-
 3.  **결과 확인**
     - 스크립트 실행이 완료되면 콘솔에 두 방법론의 최종 정확도 비교 테이블이 출력
     - 프로젝트 폴더에 각 방법론의 상세 결과가 담긴 `Predicted_..._elasticnet.xlsx` 파일과 `Predicted_..._PCA.xlsx` 파일이 생성
       
 ## ✔️​ 결과 예시
+- ** Elasticnet image
+
+- ** PCA image
+<p align="center">
+  <img src="https://github.com/jay-lay-down/demand_forecasting/raw/main/assets/forecast_anim_reg.gif" alt="Forecast animation" width="900">
+  <br><em>Actual vs Forecast (Backtest + Future)</em>
+</p>
 
 
 
