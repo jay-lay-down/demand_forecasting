@@ -1,0 +1,52 @@
+#' Rolling-origin CV RMSE
+#' @param y_ts ts
+#' @param xreg matrix
+#' @param init initial window size
+#' @param h horizon
+#' @param thr_fail failure ratio to switch fallback
+#' @param stepwise logical
+#' @param approximation logical
+#' @return numeric RMSE
+#' @export
+#' @importFrom utils flush.console
+#' @importFrom stats window time
+#' @importFrom forecast auto.arima Arima forecast
+rolling_cv_rmse <- function(y_ts, xreg, init = 48, h = 12,
+                            thr_fail = 0.10, stepwise = TRUE, approximation = TRUE) {
+  cat("[4/6] Rolling-origin CV...\n"); utils::flush.console()
+  idxs <- seq(init, length(y_ts) - h)
+  fails <- sum(sapply(idxs, function(i) {
+    !tryCatch({
+      forecast::auto.arima(
+        stats::window(y_ts, end = stats::time(y_ts)[i]),
+        xreg = xreg[1:i,, drop = FALSE],
+        seasonal = TRUE, stepwise = stepwise, approximation = approximation
+      ); TRUE
+    }, error = function(e) FALSE)
+  }))
+  use_skip <- (fails/length(idxs)) <= thr_fail
+  cat(sprintf("   Failure rate: %.1f%% -> %s\n",
+              fails/length(idxs)*100, if (use_skip) "SKIP" else "FALLBACK"))
+
+  errs <- unlist(lapply(idxs, function(i) {
+    y_tr <- stats::window(y_ts, end = stats::time(y_ts)[i])
+    fit <- tryCatch(
+      forecast::auto.arima(y_tr, xreg = xreg[1:i,, drop = FALSE], seasonal = TRUE,
+                           stepwise = stepwise, approximation = approximation),
+      error = function(e) NULL
+    )
+    if (is.null(fit) && use_skip) return(NULL)
+    if (is.null(fit)) {
+      fit <- forecast::Arima(
+        y_tr, order = c(0,1,1), seasonal = list(order = c(0,1,1), period = 12),
+        xreg = xreg[1:i,, drop = FALSE], include.mean = FALSE
+      )
+    }
+    fc <- forecast::forecast(fit, h = h, xreg = xreg[(i+1):(i+h),, drop = FALSE])$mean
+    stats::window(y_ts, start = stats::time(y_ts)[i+1], end = stats::time(y_ts)[i+h]) - fc
+  }))
+
+  rmse <- sqrt(mean(errs^2, na.rm = TRUE))
+  cat(sprintf("   CV RMSE = %.3f\n\n", rmse)); utils::flush.console()
+  rmse
+}
