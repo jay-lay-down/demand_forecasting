@@ -22,4 +22,4 @@
 
 3.  **결과 확인**
     - 스크립트 실행이 완료되면 콘솔에 두 방법론의 최종 정확도 비교 테이블이 출력
-    - 프로젝트 폴더에 각 방법론의 상세 결과가 담긴 `Predicted_..._elasticnet.xlsx` 파일과 `Predicted_..._PCA.xlsx` 파일이 생성됩니다.
+    - 프로젝트 폴더에 각 방법론의 상세 결과가 담긴 `Predicted_..._elasticnet.xlsx` 파일과 `Predicted_..._PCA.xlsx` 파일이 생성
