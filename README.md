@@ -63,17 +63,11 @@ res <- run_pipeline(
     - 프로젝트 폴더에 각 방법론의 상세 결과가 담긴 `Predicted_..._elasticnet.xlsx` 파일과 `Predicted_..._PCA.xlsx` 파일이 생성
       
 ## ✔️​ 결과 예시
-- ** Elasticnet image
 <p align="center">
   <img src="https://github.com/jay-lay-down/demand_forecasting/blob/main/assets/forecast_anim_reg_elastic.gif" alt="Forecast animation" width="900">
   <br><em>Actual vs Forecast (Backtest + Future)</em>
 </p>
 
-- ** PCA image
-<p align="center">
-  <img src="https://github.com/jay-lay-down/demand_forecasting/raw/main/assets/forecast_anim_reg.gif" alt="Forecast animation" width="900">
-  <br><em>Actual vs Forecast (Backtest + Future)</em>
-</p>
 
 
 
