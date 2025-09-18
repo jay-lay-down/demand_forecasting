@@ -44,7 +44,7 @@ res <- run_pipeline(
 - **`pcaforecast 패키지 테스트
 ```r
 install.packages("remotes")
-remotes::install_github("jay-lay-down/demand_forecasting", subdir = "regforecast", upgrade = "never")
+remotes::install_github("jay-lay-down/demand_forecasting", subdir = "pcaforecast", upgrade = "never")
 library(regforecast)
 
 res <- run_pipeline(
