@@ -4,6 +4,9 @@
 # SARIMAX 외생 변수 최적화 방법론 비교
 이 프로젝트는 SARIMAX 모델의 외생 변수(exogenous variables)를 선정하는 두 가지 방법론, **Elastic-Net**과 **주성분 분석(PCA)**을 비교하고 성능을 평가하는 R 파이프라인
 
+- ** Elasitc-Net: Elastic-Net 회귀를 통해 변수 채택 후 Granger 인과성 테스트를 통해 인과성이 보장된 변수만 모델링에 투입
+- - **`utils.R`**: 두 파이프라인이 공통으로 사용하는 헬퍼 함수 모음
+
 
 
 ## 📂 프로젝트 구조
