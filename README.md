@@ -18,7 +18,11 @@
     - `utils.R` 파일 상단의 `libs` 벡터에 있는 모든 패키지를 설치
 
 2.  **비교 파이프라인 실행**
-- **`Regression(Elasticnet) 패키지 설치 후 
+- **`Regression(Elasticnet) 패키지 설치 후 Data 내 sampledata.xlsx 다운로드
+- ## sampledata
+[📥 sampledata.xlsx](https://github.com/jay-lay-down/demand_forecasting/raw/main/data/sampledata.xlsx)
+
+<pre> ```r install.packages("remotes") remotes::install_github("jay-lay-down/demand_forecasting", subdir = "regforecast", upgrade = "never") library(regforecast) ``` </pre>
 
 3.  **결과 확인**
     - 스크립트 실행이 완료되면 콘솔에 두 방법론의 최종 정확도 비교 테이블이 출력
