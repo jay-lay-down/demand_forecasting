@@ -70,7 +70,3 @@ res <- run_pipeline(
 
 
 
-
-https://github.com/jay-lay-down/demand_forecasting/blob/main/assets/forecast_anim_reg_elastic.gif
-
-
