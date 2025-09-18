@@ -1,4 +1,4 @@
-# demand_forecasting
+# Forecasting
 외부 요인을 고려한 demand &amp; brand share forecasting
 
 # SARIMAX 외생 변수 최적화 방법론 비교
