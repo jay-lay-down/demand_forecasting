@@ -64,6 +64,10 @@ res <- run_pipeline(
       
 ## ✔️​ 결과 예시
 - ** Elasticnet image
+<p align="center">
+  <img src="https://github.com/jay-lay-down/demand_forecasting/blob/main/assets/forecast_anim_reg_elastic.gif" alt="Forecast animation" width="900">
+  <br><em>Actual vs Forecast (Backtest + Future)</em>
+</p>
 
 - ** PCA image
 <p align="center">
@@ -71,5 +75,8 @@ res <- run_pipeline(
   <br><em>Actual vs Forecast (Backtest + Future)</em>
 </p>
 
+
+
+https://github.com/jay-lay-down/demand_forecasting/blob/main/assets/forecast_anim_reg_elastic.gif
 
 
